@@ -1,9 +1,9 @@
 package com.rsj.aerion;
 
-import com.rsj.aerion.inventory.models.OS;
-import com.rsj.aerion.inventory.models.PhysicalNode;
+import com.rsj.aerion.config.models.DCConfig;
+import com.rsj.aerion.config.services.DCConfigService;
+import com.rsj.aerion.config.utils.DCConstants;
 import com.rsj.aerion.security.Parser;
-import com.rsj.aerion.security.SecurityMapper;
 import com.rsj.aerion.security.SecurityParser;
 import com.rsj.aerion.security.authorization.AuthorizationParser;
 import com.rsj.aerion.security.authorization.RoleMapper;
@@ -30,6 +30,13 @@ public class AerionApplication {
 			throw new RuntimeException(e);
 		}
 		Map<String, String> configMap = (Map<String, String>) context.getBean("configMap");
+		DCConfigService dcConfigService = context.getBean(DCConfigService.class);
+		dcConfigService.load();
+		if(configMap.get(DCConstants.ENC_KEY.name()) == null) {
+			String encDecKey = HexFormat.of().formatHex(Crypto.generateKey().getEncoded());
+			DCConfig dcConfig = new DCConfig(DCConstants.ENC_KEY.name(), encDecKey, true);
+			dcConfigService.save(dcConfig);
+		}
 		configMap.forEach((key, value) -> System.out.println(key + " " + value));
 		System.out.println(context.getBean(RoleMapper.class));
 

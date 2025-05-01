@@ -29,4 +29,9 @@ public class DCConfigService {
         dcConfigRepository.save(dcConfig);
         configMap.put(dcConfig.getName(), dcConfig.getValue());
     }
+
+    public void load() {
+        List<DCConfig> configurations = fetchAllConfigs();
+        configurations.forEach(dcConfig -> configMap.put(dcConfig.getName(), dcConfig.getValue()));
+    }
 }

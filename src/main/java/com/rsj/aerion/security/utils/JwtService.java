@@ -15,7 +15,7 @@ import java.util.concurrent.TimeUnit;
 public class JwtService {
 
     private  static final Long EXPIRATION_TIME = TimeUnit.HOURS.toMillis(24);
-    private static final String KEY = "212bc4e86316e24a601da55e4144cf5cdd8e5f3365a12f320042fa2c78f32f6a"; // Crypto.generateKey();
+    private static final String KEY = "212bc4e86316e24a601da55e4144cf5cdd8e5f3365a12f320042fa2c78f32f6a";
 
     public String generateToken(String username) throws Exception {
         Map<String, Object> claims = new HashMap<>();

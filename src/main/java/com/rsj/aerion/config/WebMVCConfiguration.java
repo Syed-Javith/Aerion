@@ -26,6 +26,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+import java.util.HashMap;
 import java.util.Map;
 
 @Configuration
@@ -101,6 +102,10 @@ public class WebMVCConfiguration implements WebMvcConfigurer {
 
     @Bean("configMap")
     public Map<String, String> configMap() {
-        return Map.of("dc.url", "http://localhost:8080");
+        return new HashMap<>(){
+            {
+                put("dc.url", "http://localhost:8080");
+            }
+        };
     }
 }
