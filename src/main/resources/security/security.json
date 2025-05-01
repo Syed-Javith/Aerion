@@ -1,0 +1,60 @@
+{
+  "urls": {
+    "/inv/vm_GET": {
+
+    },
+    "/_GET": {
+
+    },
+    "/index.html_GET": {
+
+    },
+    "/audit/user_GET": {
+
+    },
+    "/auth/login_POST": {
+      "params": {
+        "email": {
+          "type": "STRING",
+          "regex": "",
+          "minOccurrence": 1,
+          "maxOccurrence": 1
+        },
+        "password": {
+          "type": "STRING",
+          "regex": "",
+          "minOccurrence": 0,
+          "maxOccurrence": 1
+        }
+      }
+    },
+    "/auth/register_POST": {
+      "params": {
+        "email": {
+          "type": "STRING",
+          "regex": "",
+          "minOccurrence": 1,
+          "maxOccurrence": 1
+        },
+        "name": {
+          "type": "STRING",
+          "regex": "",
+          "minOccurrence": 1,
+          "maxOccurrence": 1
+        },
+        "password": {
+          "type": "STRING",
+          "regex": "",
+          "minOccurrence": 1,
+          "maxOccurrence": 1
+        },
+        "roles": {
+          "type": "ARRAY",
+          "regex": "",
+          "minOccurrence": 1,
+          "maxOccurrence": 1
+        }
+      }
+    }
+  }
+}

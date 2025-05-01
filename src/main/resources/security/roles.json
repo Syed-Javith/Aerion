@@ -1,0 +1,11 @@
+{
+  "roles": {
+    "ADMIN": [
+      "Role:INV_RW",
+      "/auth/register"
+    ],
+    "INV_RW": [
+      "/inv/vm"
+    ]
+  }
+}
