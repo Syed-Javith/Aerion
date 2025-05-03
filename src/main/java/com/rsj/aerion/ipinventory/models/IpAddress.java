@@ -15,6 +15,12 @@ public class IpAddress {
     public IpAddress() {
     }
 
+    public IpAddress(String ip) {
+        this.ip = ip;
+        this.type = AddressType.MANAGEMENT_IP;
+        this.hostName = ip;
+    }
+
     public IpAddress(Long id, String ip, Subnet subnet, AddressType type, boolean pingable, String hostName, String macAddress, String netmask, String ipv6, int v6Prefix, String v6LinkLocal, Long updatedTime, Long pingUpdatedTime) {
         this.id = id;
         this.ip = ip;
@@ -159,5 +165,9 @@ public class IpAddress {
 
     public void setPingUpdatedTime(Long pingUpdatedTime) {
         this.pingUpdatedTime = pingUpdatedTime;
+    }
+
+    public String toString() {
+        return "IP Address " + this.ip;
     }
 }

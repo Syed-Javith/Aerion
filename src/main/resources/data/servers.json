@@ -5,7 +5,7 @@
       "kernel": "3.10.0-1160.6.1.el7.x86_64",
       "hostname": "172.20.56.57",
       "mac": "b4:96:91:89:94:f0",
-      "netmask": "255.255.0.0",
+      "netmask": "251.255.0.0",
       "ipv6": "",
       "v6_prefix": "",
       "ipv6_link_local": "fe80::4a7:abff:fe3d:43e0",

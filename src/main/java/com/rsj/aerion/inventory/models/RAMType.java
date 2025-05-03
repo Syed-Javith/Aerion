@@ -21,4 +21,11 @@ public enum RAMType {
     public String toString() {
         return name().replace("_", "-");
     }
+
+    public static RAMType getRAMType(String type) {
+        for(RAMType ramType : RAMType.values()) {
+            if(ramType.toString().equals(type)) return ramType;
+        }
+        return DDR;
+    }
 }

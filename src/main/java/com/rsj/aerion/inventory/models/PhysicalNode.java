@@ -1,8 +1,11 @@
 package com.rsj.aerion.inventory.models;
 
 import com.rsj.aerion.ipinventory.models.IpAddress;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.PrimaryKeyJoinColumn;
 import lombok.NoArgsConstructor;
@@ -19,12 +22,13 @@ public class PhysicalNode extends Node {
     @Column(unique = true)
     private String label;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private IpAddress managementIp;
     private String type;
     private String serialNumber;
     private String details;
     private String location;
+    @ManyToOne(cascade = CascadeType.ALL)
     private Vendor vendor;
     private Long hardwareTypeId;
     private Long updatedTime;
@@ -50,261 +54,294 @@ public class PhysicalNode extends Node {
     private String secureBoot;
     private Integer ipmiStatus;
     private Long ipmiUpdatedTime;
+    @OneToMany(cascade = CascadeType.ALL)
     private List<LogicalVolume> lvs;
 
     public String getLabel() {
         return label;
     }
 
-    public void setLabel(String label) {
+    public PhysicalNode setLabel(String label) {
         this.label = label;
+        return this;
     }
 
     public IpAddress getManagementIp() {
         return managementIp;
     }
 
-    public void setManagementIp(IpAddress managementIp) {
+    public PhysicalNode setManagementIp(IpAddress managementIp) {
         this.managementIp = managementIp;
+        return this;
     }
 
     public String getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public PhysicalNode setType(String type) {
         this.type = type;
+        return this;
     }
 
     public String getSerialNumber() {
         return serialNumber;
     }
 
-    public void setSerialNumber(String serialNumber) {
+    public PhysicalNode setSerialNumber(String serialNumber) {
         this.serialNumber = serialNumber;
+        return this;
     }
 
     public String getDetails() {
         return details;
     }
 
-    public void setDetails(String details) {
+    public PhysicalNode setDetails(String details) {
         this.details = details;
+        return this;
     }
 
     public String getLocation() {
         return location;
     }
 
-    public void setLocation(String location) {
+    public PhysicalNode setLocation(String location) {
         this.location = location;
+        return this;
     }
 
     public Vendor getVendor() {
         return vendor;
     }
 
-    public void setVendor(Vendor vendor) {
+    public PhysicalNode setVendor(Vendor vendor) {
         this.vendor = vendor;
+        return this;
     }
 
     public Long getHardwareTypeId() {
         return hardwareTypeId;
     }
 
-    public void setHardwareTypeId(Long hardwareTypeId) {
+    public PhysicalNode setHardwareTypeId(Long hardwareTypeId) {
         this.hardwareTypeId = hardwareTypeId;
+        return this;
     }
 
     public Long getUpdatedTime() {
         return updatedTime;
     }
 
-    public void setUpdatedTime(Long updatedTime) {
+    public PhysicalNode setUpdatedTime(Long updatedTime) {
         this.updatedTime = updatedTime;
+        return this;
     }
 
     public Long getPurchaseDate() {
         return purchaseDate;
     }
 
-    public void setPurchaseDate(Long purchaseDate) {
+    public PhysicalNode setPurchaseDate(Long purchaseDate) {
         this.purchaseDate = purchaseDate;
+        return this;
     }
 
     public String getChassisSerialNumber() {
         return chassisSerialNumber;
     }
 
-    public void setChassisSerialNumber(String chassisSerialNumber) {
+    public PhysicalNode setChassisSerialNumber(String chassisSerialNumber) {
         this.chassisSerialNumber = chassisSerialNumber;
+        return this;
     }
 
     public Long getChassisId() {
         return chassisId;
     }
 
-    public void setChassisId(Long chassisId) {
+    public PhysicalNode setChassisId(Long chassisId) {
         this.chassisId = chassisId;
+        return this;
     }
 
     public Integer getServerLocation() {
         return serverLocation;
     }
 
-    public void setServerLocation(Integer serverLocation) {
+    public PhysicalNode setServerLocation(Integer serverLocation) {
         this.serverLocation = serverLocation;
+        return this;
     }
 
     public Integer getRamSize() {
         return ramSize;
     }
 
-    public void setRamSize(Integer ramSize) {
+    public PhysicalNode setRamSize(Integer ramSize) {
         this.ramSize = ramSize;
+        return this;
     }
 
     public Integer getMaxRamCapacity() {
         return maxRamCapacity;
     }
 
-    public void setMaxRamCapacity(Integer maxRamCapacity) {
+    public PhysicalNode setMaxRamCapacity(Integer maxRamCapacity) {
         this.maxRamCapacity = maxRamCapacity;
+        return this;
     }
 
     public Integer getMaxRamModules() {
         return maxRamModules;
     }
 
-    public void setMaxRamModules(Integer maxRamModules) {
+    public PhysicalNode setMaxRamModules(Integer maxRamModules) {
         this.maxRamModules = maxRamModules;
+        return this;
     }
 
     public Integer getPowerConsumed() {
         return powerConsumed;
     }
 
-    public void setPowerConsumed(Integer powerConsumed) {
+    public PhysicalNode setPowerConsumed(Integer powerConsumed) {
         this.powerConsumed = powerConsumed;
+        return this;
     }
 
     public String getMotherboardModel() {
         return motherboardModel;
     }
 
-    public void setMotherboardModel(String motherboardModel) {
+    public PhysicalNode setMotherboardModel(String motherboardModel) {
         this.motherboardModel = motherboardModel;
+        return this;
     }
 
     public String getBiosVersion() {
         return biosVersion;
     }
 
-    public void setBiosVersion(String biosVersion) {
+    public PhysicalNode setBiosVersion(String biosVersion) {
         this.biosVersion = biosVersion;
+        return this;
     }
 
     public String getIpmiVersion() {
         return ipmiVersion;
     }
 
-    public void setIpmiVersion(String ipmiVersion) {
+    public PhysicalNode setIpmiVersion(String ipmiVersion) {
         this.ipmiVersion = ipmiVersion;
+        return this;
     }
 
     public String getBmcVersion() {
         return bmcVersion;
     }
 
-    public void setBmcVersion(String bmcVersion) {
+    public PhysicalNode setBmcVersion(String bmcVersion) {
         this.bmcVersion = bmcVersion;
+        return this;
     }
 
     public String getServerModel() {
         return serverModel;
     }
 
-    public void setServerModel(String serverModel) {
+    public PhysicalNode setServerModel(String serverModel) {
         this.serverModel = serverModel;
+        return this;
     }
 
     public Integer getDiskSize() {
         return diskSize;
     }
 
-    public void setDiskSize(Integer diskSize) {
+    public PhysicalNode setDiskSize(Integer diskSize) {
         this.diskSize = diskSize;
+        return this;
     }
 
     public Integer getDiskCount() {
         return diskCount;
     }
 
-    public void setDiskCount(Integer diskCount) {
+    public PhysicalNode setDiskCount(Integer diskCount) {
         this.diskCount = diskCount;
+        return this;
     }
 
     public String getDriveType() {
         return driveType;
     }
 
-    public void setDriveType(String driveType) {
+    public PhysicalNode setDriveType(String driveType) {
         this.driveType = driveType;
+        return this;
     }
 
     public Integer getDiskEncryption() {
         return diskEncryption;
     }
 
-    public void setDiskEncryption(Integer diskEncryption) {
+    public PhysicalNode setDiskEncryption(Integer diskEncryption) {
         this.diskEncryption = diskEncryption;
+        return this;
     }
 
     public Integer getPowerStatus() {
         return powerStatus;
     }
 
-    public void setPowerStatus(Integer powerStatus) {
+    public PhysicalNode setPowerStatus(Integer powerStatus) {
         this.powerStatus = powerStatus;
+        return this;
     }
 
     public String getBootMode() {
         return bootMode;
     }
 
-    public void setBootMode(String bootMode) {
+    public PhysicalNode setBootMode(String bootMode) {
         this.bootMode = bootMode;
+        return this;
     }
 
     public String getSecureBoot() {
         return secureBoot;
     }
 
-    public void setSecureBoot(String secureBoot) {
+    public PhysicalNode setSecureBoot(String secureBoot) {
         this.secureBoot = secureBoot;
+        return this;
     }
 
     public Integer getIpmiStatus() {
         return ipmiStatus;
     }
 
-    public void setIpmiStatus(Integer ipmiStatus) {
+    public PhysicalNode setIpmiStatus(Integer ipmiStatus) {
         this.ipmiStatus = ipmiStatus;
+        return this;
     }
 
     public Long getIpmiUpdatedTime() {
         return ipmiUpdatedTime;
     }
 
-    public void setIpmiUpdatedTime(Long ipmiUpdatedTime) {
+    public PhysicalNode setIpmiUpdatedTime(Long ipmiUpdatedTime) {
         this.ipmiUpdatedTime = ipmiUpdatedTime;
+        return this;
     }
 
     public List<LogicalVolume> getLvs() {
         return lvs;
     }
 
-    public void setLvs(List<LogicalVolume> lvs) {
+    public PhysicalNode setLvs(List<LogicalVolume> lvs) {
         this.lvs = lvs;
+        return this;
     }
 }
