@@ -9,18 +9,24 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
+
+import java.util.List;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Node {
 
-    public Node() {}
+    public Node() {
+    }
 
-    public Node(Long id, IpAddress ipAddress, OS osInfo) {
+    public Node(Long id, IpAddress ipAddress, OS osInfo, CentralProcessingUnit centralProcessingUnit, List<RAMModule> ramModules) {
         this.id = id;
         this.ipAddress = ipAddress;
         this.osInfo = osInfo;
+        this.centralProcessingUnit = centralProcessingUnit;
+        this.ramModules = ramModules;
     }
 
     @Id
@@ -32,6 +38,12 @@ public class Node {
 
     @ManyToOne
     private OS osInfo;
+
+    @ManyToOne
+    private CentralProcessingUnit centralProcessingUnit;
+
+    @OneToMany
+    List<RAMModule> ramModules;
 
     public Long getId() {
         return id;
@@ -55,5 +67,21 @@ public class Node {
 
     public void setOsInfo(OS osInfo) {
         this.osInfo = osInfo;
+    }
+
+    public CentralProcessingUnit getCentralProcessingUnit() {
+        return centralProcessingUnit;
+    }
+
+    public void setCentralProcessingUnit(CentralProcessingUnit centralProcessingUnit) {
+        this.centralProcessingUnit = centralProcessingUnit;
+    }
+
+    public List<RAMModule> getRamModules() {
+        return ramModules;
+    }
+
+    public void setRamModules(List<RAMModule> ramModules) {
+        this.ramModules = ramModules;
     }
 }

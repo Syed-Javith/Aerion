@@ -3,6 +3,7 @@ package com.rsj.aerion;
 import com.rsj.aerion.config.models.DCConfig;
 import com.rsj.aerion.config.services.DCConfigService;
 import com.rsj.aerion.config.utils.DCConstants;
+import com.rsj.aerion.inventory.models.PhysicalNode;
 import com.rsj.aerion.security.Parser;
 import com.rsj.aerion.security.SecurityParser;
 import com.rsj.aerion.security.authorization.AuthorizationParser;

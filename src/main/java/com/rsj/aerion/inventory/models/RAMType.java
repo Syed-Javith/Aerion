@@ -1,0 +1,24 @@
+package com.rsj.aerion.inventory.models;
+
+public enum RAMType {
+    DDR,
+    DDR2,
+    DDR3,
+    DDR4,
+    DDR5,
+    LPDDR,
+    GDDR5,
+    GDDR6,
+    ECC_DDR4,
+    ECC_DDR5,
+    SODIMM,
+    UDIMM,
+    RDIMM,
+    LRDIMM,
+    NVDIMM;
+
+    @Override
+    public String toString() {
+        return name().replace("_", "-");
+    }
+}

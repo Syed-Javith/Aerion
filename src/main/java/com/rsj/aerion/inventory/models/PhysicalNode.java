@@ -5,10 +5,10 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.PrimaryKeyJoinColumn;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
-import lombok.Setter;
+
+import java.util.List;
 
 @Entity
 @NoArgsConstructor
@@ -25,7 +25,7 @@ public class PhysicalNode extends Node {
     private String serialNumber;
     private String details;
     private String location;
-    private Long vendorId;
+    private Vendor vendor;
     private Long hardwareTypeId;
     private Long updatedTime;
     private Long purchaseDate;
@@ -50,8 +50,7 @@ public class PhysicalNode extends Node {
     private String secureBoot;
     private Integer ipmiStatus;
     private Long ipmiUpdatedTime;
-
-    // Getters and Setters
+    private List<LogicalVolume> lvs;
 
     public String getLabel() {
         return label;
@@ -61,11 +60,11 @@ public class PhysicalNode extends Node {
         this.label = label;
     }
 
-    public IpAddress getManagementIpId() {
+    public IpAddress getManagementIp() {
         return managementIp;
     }
 
-    public void setManagementIpId(IpAddress managementIp) {
+    public void setManagementIp(IpAddress managementIp) {
         this.managementIp = managementIp;
     }
 
@@ -101,12 +100,12 @@ public class PhysicalNode extends Node {
         this.location = location;
     }
 
-    public Long getVendorId() {
-        return vendorId;
+    public Vendor getVendor() {
+        return vendor;
     }
 
-    public void setVendorId(Long vendorId) {
-        this.vendorId = vendorId;
+    public void setVendor(Vendor vendor) {
+        this.vendor = vendor;
     }
 
     public Long getHardwareTypeId() {
@@ -301,4 +300,11 @@ public class PhysicalNode extends Node {
         this.ipmiUpdatedTime = ipmiUpdatedTime;
     }
 
+    public List<LogicalVolume> getLvs() {
+        return lvs;
+    }
+
+    public void setLvs(List<LogicalVolume> lvs) {
+        this.lvs = lvs;
+    }
 }
