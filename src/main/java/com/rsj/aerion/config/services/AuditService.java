@@ -1,7 +1,6 @@
 package com.rsj.aerion.config.services;
 
 import com.rsj.aerion.config.models.ApiAudit;
-import com.rsj.aerion.config.models.Audit;
 import com.rsj.aerion.config.models.UserAudit;
 import com.rsj.aerion.config.repositories.ApiAuditRepository;
 import com.rsj.aerion.config.repositories.AuditRepository;
